@@ -1,0 +1,32 @@
+{
+  "name": "git-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "add": "^2.0.6",
+    "animate.css": "^3.7.2",
+    "classnames": "^2.2.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "source-map-support": "^0.5.12",
+    "uuid": "^3.3.2",
+    "yarn": "^1.17.3"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "electron": "^5.0.6",
+    "electron-builder": "^21.0.15",
+    "electron-webpack": "^2.7.4",
+    "webpack": "^4.35.3"
+  }
+}
