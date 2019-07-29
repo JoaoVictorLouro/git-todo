@@ -16,8 +16,10 @@
     "add": "^2.0.6",
     "animate.css": "^3.7.2",
     "classnames": "^2.2.6",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "sass-loader": "^7.1.0",
     "source-map-support": "^0.5.12",
     "uuid": "^3.3.2",
     "yarn": "^1.17.3"

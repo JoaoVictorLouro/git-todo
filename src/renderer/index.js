@@ -215,17 +215,17 @@ function Task({ task }) {
         <FontAwesomeIcon icon={faCodeBranch} />
         {isEditing ? <input id={task.id + "_name"} onChange={onNameChange} value={name} /> : <h2>{task.name}</h2>}
         {isEditing ? (
-          <button onClick={saveName}>
+          <button onClick={saveName} className="filled-primary task-button">
             <FontAwesomeIcon icon={faCheck} />
           </button>
         ) : (
-          <button onClick={() => setEditing(true)}>
+          <button onClick={() => setEditing(true)} className="filled-primary task-button">
             <FontAwesomeIcon icon={faEdit} />
           </button>
         )}
         {isEditing && (
           <button
-            className="filled-primary"
+            className="filled-primary task-button"
             onClick={() => {
               setEditing(false);
               setName(task.name);
@@ -235,17 +235,17 @@ function Task({ task }) {
           </button>
         )}
         {!isEditing && (
-          <button onClick={moveUp} className="filled-primary">
+          <button onClick={moveUp} className="filled-primary task-button">
             <FontAwesomeIcon icon={faChevronUp} />
           </button>
         )}
         {!isEditing && (
-          <button onClick={moveDown} className="filled-primary">
+          <button onClick={moveDown} className="filled-primary task-button">
             <FontAwesomeIcon icon={faChevronDown} />
           </button>
         )}
         {!isEditing && (
-          <button onClick={removeTask} className="filled-primary">
+          <button onClick={removeTask} className="filled-primary task-button">
             <FontAwesomeIcon icon={faTrashAlt} />
           </button>
         )}

@@ -11,6 +11,14 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 let mainWindow;
 
+let shouldQuit = !app.requestSingleInstanceLock();
+
+if (shouldQuit) {
+  console.log("Another instance is already running, focusing on it...");
+  app.quit();
+  process.exit(0);
+}
+
 function createMainWindow() {
   const window = new BrowserWindow({ webPreferences: { nodeIntegration: true } });
 
@@ -29,6 +37,10 @@ function createMainWindow() {
       })
     );
   }
+
+  app.on('second-instance', () => {
+      app.focus();
+  });
 
   window.on("closed", () => {
     mainWindow = null;
@@ -53,13 +65,11 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-  // on macOS it is common to re-create a window even after all windows have been closed
   if (mainWindow === null) {
     mainWindow = createMainWindow();
   }
 });
 
-// create main BrowserWindow when electron is ready
 app.on("ready", () => {
   mainWindow = createMainWindow();
 });
